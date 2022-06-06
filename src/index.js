@@ -101,6 +101,11 @@ class List {
      *
      * @type {ListData}
      */
+
+    console.log(1);
+    console.log(this._data);
+    console.log(2);
+
     this._data = {
       style: this.settings.find((tune) => tune.default === true).name,
       items: [],
