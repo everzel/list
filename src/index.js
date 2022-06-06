@@ -274,26 +274,27 @@ class List {
    * @returns {HTMLOListElement|HTMLUListElement}
    */
   makeMainTag(style){
+    let styleClass = '';
+
     if (style === 'ordered') {
-      const styleClass = this.CSS.wrapperOrdered;
+      styleClass = this.CSS.wrapperOrdered;
     }
 
     if (style === 'unordered') {
-      const styleClass = this.CSS.wrapperUnordered;
+      styleClass = this.CSS.wrapperUnordered;
     }
 
     if (style === 'none') {
-      const styleClass = this.CSS.wrapperNone;
+      styleClass = this.CSS.wrapperNone;
     }
+
+    let tag = '';
 
     if (style === 'ordered') {
-      const tag = 'ol';
+      tag = 'ol';
     } else {
-      const tag = 'ul';
+      tag = 'ul';
     }
-
-    console.log(tag);
-    console.log(styleClass);
 
     return this._make(tag, [this.CSS.baseBlock, this.CSS.wrapper, styleClass], {
       contentEditable: !this.readOnly,
