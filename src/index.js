@@ -292,13 +292,9 @@ class List {
       const tag = 'ul';
     }
 
-    let make = this._make(tag, [this.CSS.baseBlock, this.CSS.wrapper, styleClass], {
+    return this._make(tag, [this.CSS.baseBlock, this.CSS.wrapper, styleClass], {
       contentEditable: !this.readOnly,
     });
-
-    console.log(make);
-
-    return make;
   }
 
   /**
@@ -387,6 +383,7 @@ class List {
    * @returns {Element}
    */
   _make(tagName, classNames = null, attributes = {}) {
+    console.log(1);
     const el = document.createElement(tagName);
 
     if (Array.isArray(classNames)) {
@@ -398,6 +395,7 @@ class List {
     for (const attrName in attributes) {
       el[attrName] = attributes[attrName];
     }
+    console.log(2);
 
     return el;
   }
