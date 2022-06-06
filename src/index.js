@@ -273,18 +273,18 @@ class List {
    * @returns {HTMLOListElement|HTMLUListElement}
    */
   makeMainTag(style){
+    const styleClass = this.CSS.wrapperNone;
+
     if (style === 'ordered') {
       const styleClass = this.CSS.wrapperOrdered;
     } else if (style === 'unordered') {
       const styleClass = this.CSS.wrapperUnordered;
-    } else if (style === 'none') {
-      const styleClass = this.CSS.wrapperNone;
     }
+
+    const tag = 'ul';
 
     if (style === 'ordered') {
       const tag = 'ol';
-    } else {
-      const tag = 'ul';
     }
 
     return this._make(tag, [this.CSS.baseBlock, this.CSS.wrapper, styleClass], {
