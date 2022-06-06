@@ -106,6 +106,8 @@ class List {
       items: [],
     };
 
+    console.log(this._data);
+
     this.data = data;
   }
 
