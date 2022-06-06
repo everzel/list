@@ -24,3 +24,7 @@
         }
     }
 }
+
+.cdx-list--none {
+    list-style: circle;
+}
