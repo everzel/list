@@ -102,16 +102,10 @@ class List {
      * @type {ListData}
      */
 
-    console.log(1);
-    console.log(this._data);
-    console.log(2);
-
     this._data = {
       style: this.settings.find((tune) => tune.default === true).name,
       items: [],
     };
-
-    console.log(this._data);
 
     this.data = data;
   }
@@ -280,18 +274,22 @@ class List {
    * @returns {HTMLOListElement|HTMLUListElement}
    */
   makeMainTag(style){
-    const styleClass = this.CSS.wrapperNone;
-
     if (style === 'ordered') {
       const styleClass = this.CSS.wrapperOrdered;
-    } else if (style === 'unordered') {
+    }
+
+    if (style === 'unordered') {
       const styleClass = this.CSS.wrapperUnordered;
     }
 
-    const tag = 'ul';
+    if (style === 'none') {
+      const styleClass = this.CSS.wrapperNone;
+    }
 
     if (style === 'ordered') {
       const tag = 'ol';
+    } else {
+      const tag = 'ul';
     }
 
     return this._make(tag, [this.CSS.baseBlock, this.CSS.wrapper, styleClass], {
